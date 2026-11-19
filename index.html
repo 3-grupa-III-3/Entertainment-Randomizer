@@ -9,23 +9,23 @@
 </head>
 <body>
     <div id="navbar" class="navbar">
-        <!-- LOGO -->
+        <!-- logo -->
         <div id="logo" class="logo">
             <img src="./img/logo.png" alt="logo">
         </div>
-        <!-- LINKOVI -->
+        <!-- linkovi -->
         <div id="navmeni" class="navmeni">
             <a href="#navbar">POCETNA STRANICA</a>
             <a href="#">RANDOMIZER</a>
         </div>
-        <!-- SEARCH -->
+        <!-- pretraga -->
         <div id="search" class="search">
             <span class="search-icon">🔍</span>
             <input type="text" placeholder="" id="searchInput" aria-label="Pretraga">
         </div>
-        <!-- data-guest = vidi ga samo neulogovan korisnik, data-user = samo ulogovan -->
+        <!-- data-guest - vidi samo neulogovan, data-user - vidi samo ulogovan -->
         <a href="#" class="login" data-guest data-open="loginModal">Log in</a>
-        <!-- BURGER MENI -->
+        <!-- hamburger menu -->
         <div class="burger-wrap">
             <button id="burgerBtn" class="burger-btn" aria-label="Meni" aria-expanded="false" aria-controls="burgerMeni">
                 <span></span>
@@ -42,20 +42,14 @@
         </div>
     </div>
 
-    <!-- POPUP: LOG IN -->
-    <!-- <dialog> je ugradjeni HTML element za popup; JS ga otvara sa showModal() -->
+    <!-- log in popup -->
     <dialog id="loginModal" class="modal">
-        <!-- .modal-telo = unutrasnji omotac sa paddingom; zbog njega klik na zatamnjenu pozadinu razlikujemo od klika u karticu -->
         <div class="modal-telo">
-            <!-- type="button" = ne salje formu; data-close = JS po ovome zna da ovo dugme zatvara popup -->
             <button type="button" class="modal-close" data-close aria-label="Zatvori">&times;</button>
             <h2>Log in</h2>
-            <!-- bez novalidate: browser sam proverava required / type="email" / minlength pre slanja -->
             <form>
                 <div class="polje">
-                    <!-- name = ime polja (JS i kasnije Auth servis ga koriste); placeholder=" " (razmak) je trik da CSS zna da li je polje prazno; autocomplete = pomaze password manageru; required = obavezno polje -->
                     <input type="email" name="email" id="loginEmail" placeholder=" " autocomplete="email" required>
-                    <!-- for/id povezuje labelu i polje (klik na labelu fokusira polje) -->
                     <label for="loginEmail">Email</label>
                 </div>
                 <div class="polje">
@@ -63,26 +57,22 @@
                     <label for="loginLozinka">Lozinka</label>
                 </div>
                 <div class="red">
-                    <!-- kvacica; klasa .prikazi sluzi JS-u da je nadje -->
                     <label><input type="checkbox" class="prikazi"> Prikaži lozinku</label>
                     <a href="#">Zaboravljena lozinka?</a>
                 </div>
-                <!-- dugme u formi je automatski "submit" -->
                 <button class="dugme">Prijavi se</button>
-                <!-- data-open = klik otvara popup sa tim id-jem (JS zatvara trenutni) -->
                 <p class="mali">Nemaš nalog? <a href="#" data-open="signupModal">Registruj se</a></p>
             </form>
         </div>
     </dialog>
 
-    <!-- POPUP: SIGN UP (ista gradja kao log in) -->
+    <!-- sign up popup -->
     <dialog id="signupModal" class="modal">
         <div class="modal-telo">
             <button type="button" class="modal-close" data-close aria-label="Zatvori">&times;</button>
             <h2>Sign up</h2>
             <form>
                 <div class="polje">
-                    <!-- minlength="3" = bar 3 karaktera -->
                     <input type="text" name="ime" id="signupIme" placeholder=" " autocomplete="username" minlength="3" required>
                     <label for="signupIme">Korisničko ime</label>
                 </div>
@@ -91,7 +81,6 @@
                     <label for="signupEmail">Email</label>
                 </div>
                 <div class="polje">
-                    <!-- new-password = password manager nudi da napravi novu lozinku -->
                     <input type="password" name="lozinka" id="signupLozinka" placeholder=" " autocomplete="new-password" minlength="8" required>
                     <label for="signupLozinka">Lozinka</label>
                 </div>
